@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="tufte.css"/>
+    
+    <title>Harnessing the Universal Geometry of Embeddings</title>
+</head>
+<body>
+    <article>
+        <section id = 'title-main'>
+            <h1 class='title'>
+                <span class='main-title'>Harnessing the Universal Geometry of Embeddings</span>
+            </h1>
+            <p class='newthought' id='authors'>
+                <span class='individual-author'>Rishi Jha<input type='checkbox' id='author-affiliation-1' class='margin-toggle'/></span>,
+                <span class='individual-author'>Collin Zhang, </span>
+                <span class='individual-author'>Vitaly Shmatikov,</span>
+                <span class='individual-author'>John X. Morris</span>
+            </p>
+            <p class='proc-venue'>
+                Cornell University
+            </p>
+            <p class='links'>
+                <span class='newthought'><a class='pop' href='https://arxiv.org/abs/2505.12540' target='_blank' rel='noopener noreferrer'>preprint</a></span>
+                <span class='newthought'><a class='pop' href='https://github.com/rjha18/vec2vec' target='_blank' rel='noopener noreferrer'>code</a></span>
+                <!-- <span class='newthought'><a class='pop' href='https://www.youtube.com/watch?v=-LABTmOn7mU' target='_blank' rel='noopener noreferrer'>presentation</a></span> -->
+                <!-- <span class='newthought'><a class='pop' href='https://dl.acm.org/doi/10.1145/3706598.3714129' target='_blank' rel='noopener noreferrer'>publication</a></span> -->
+            </p>
+        </section>
+        <section>
+            <figure>
+                <img src="./assets/universal.png" alt="Figure 1" />
+                <label for="mn-figure-1" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-1" class="margin-toggle"/>
+                <span class="marginnote">
+                    <em>Figure 1.</em> Left: input embeddings from different model families (T5-based <a href='https://arxiv.org/abs/2112.07899'>GTR</a> and BERT-based <a href='https://arxiv.org/abs/2308.03281'>GTE</a>) are fundamentally incomparable. Right: given unpaired embedding samples from different models on different texts, our model learns a latent representation where they are closely aligned.
+                </span>
+            </figure>
+            
+            <!-- ABSTRACT -->
+            <h2 class='section-header'>
+                Abstract
+            </h2>
+            <p>
+                We introduce the first method for translating text embeddings from one vector space to another without any paired data, encoders, or predefined sets of matches.  Our unsupervised approach translates any embedding to and from a universal latent representation (i.e., a universal semantic structure conjectured by the Platonic Representation Hypothesis).  Our translations achieve high cosine similarity across model pairs with different architectures, parameter counts, and training datasets.
+            </p>
+            <p>
+                The ability to translate unknown embeddings into a different space while preserving their geometry has serious implications for the security of vector databases.  An adversary with access only to embedding vectors can extract sensitive information about the underlying documents, sufficient for classification and attribute inference.
+            </p>
+            
+            <!-- S-PRH -->
+            <h2 class='section-header'>
+                Strong Platonic Representation Hypothesis
+            </h2>
+            <p>
+                The <a href='https://arxiv.org/abs/2112.07899'>Platonic Representation Hypothesis</a> conjectures that all image models of sufficient size have the same latent representation. We propose a stronger, constructive version of this hypothesis for text models,
+            </p>
+            <p>
+                <strong>
+                    <em>Strong</em> Platonic Representation Hypothesis:
+                </strong>    
+                the universal latent structure of text representations can be learned and, furthermore, harnessed to translate representations from one space to another without any paired data or encoders.
+            </p>
+            <figure>
+                <img src="./assets/latent_sims.png" alt="Figure 2" />
+                <label for="mn-figure-2" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-2" class="margin-toggle"/>
+                <span class="marginnote">
+                    <em>Figure 2.</em> Pairwise cosine similarities of input embeddings (left) and their vec2vec latents (middle) across different embedding pairs. The absolute difference between the heatmaps plots is on the right. All numbers are computed on the same batch of 1024 NQ texts.
+                </span>
+            </figure>
+
+            <!-- Preserving Geometry -->
+            <h2 class='section-header'>
+                Preserving Geometry
+            </h2>
+            <p>
+                Our method, vec2vec, reveals that all encoders—regardless of architecture or training data—learn nearly the same representations! We demonstrate how to translate between these black-box embeddings without any paired data, maintaining high fidelity.
+            </p>
+            <figure>
+                <img src="./assets/align.gif" alt="Figure 3" />
+                <label for="mn-figure-3" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-3" class="margin-toggle"/>
+                <span class="marginnote">
+                    <em>Figure 3.</em> Cosine similarity of translated embeddings (y-axis) and <em>ideal</em> target embeddings (x-axis) as a function of the number of training steps. Note that vec2vec does not have access to the target embeddings during training.
+                </span>
+            </figure>
+            
+            <!-- Security Implications -->
+            <h2 class='section-header'>
+                Security Implications
+            </h2>
+            <p>
+                Using vec2vec, we show that vector databases reveal (almost) as much as their inputs. Given just vectors (e.g., from a compromised vector database), we show that an adversary can extract sensitive information (e.g., PII) about the underlying text.
+            </p>
+            <figure>
+                <img src="./assets/sec.jpeg" alt="Figure 4" />
+                <label for="mn-figure-4" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-4" class="margin-toggle"/>
+                <span class="marginnote">
+                    <em>Figure 4.</em> Examples of embedding inversions that infer entities (green) and content (yellow).
+                </span>
+            </figure>
+
+            <!-- Contact -->
+            <h2 class='section-header'>
+                Contact
+            </h2>
+            <p>
+                If you have questions about this work, contact Rishi Jha at:
+                <code>
+                    rjha at cs dot cornell dot edu
+                </code>
+                .
+            </p>
+        </section>
+    </article>
+</body>
+</html>
