@@ -62,7 +62,11 @@
                 <strong>
                     <em>Strong</em> Platonic Representation Hypothesis:
                 </strong>    
-                the universal latent structure of text representations can be learned and, furthermore, harnessed to translate representations from one space to another without any paired data or encoders.
+                the universal latent structure of text representations not only exists, but can be learned and, furthermore, harnessed to translate representations from one space to another without any paired data or encoders.
+            </p>
+            <p>
+                Our method, vec2vec, reveals that all encoders—regardless of architecture or training data—learn nearly the same representations (Figs. 1 and 2)!                
+                 <!-- We demonstrate how to translate between these black-box embeddings without any paired data, maintaining high fidelity. -->
             </p>
             <figure>
                 <img src="./assets/latent_sims.png" alt="Figure 2" />
@@ -78,7 +82,11 @@
                 Preserving Geometry
             </h2>
             <p>
-                Our method, vec2vec, reveals that all encoders—regardless of architecture or training data—learn nearly the same representations! We demonstrate how to translate between these black-box embeddings without any paired data, maintaining high fidelity.
+                Leveraging these universal representations, we show that vec2vec can translate embeddings generated from unseen documents by unseen encoders while preserving their geometry: <em>i.e.,</em> the cosine similarity of the translated embeddings and the <em>ideal</em> target embeddings is high (Figs. 3 and 4).
+                <!-- Then, leveraging these universal representations, vec2vec learns translations from one embedding space to another <em>without access to any paired data, encoders, or predefined matches</em>. -->
+            </p>
+            <p>
+                The translators are robust to (sometimes very) out- of-distribution inputs indicating that the shared latent structure is not just a property of the training data, but rather a fundamental property of the text embeddings.
             </p>
             <figure>
                 <img src="./assets/align.gif" alt="Figure 3" />
@@ -88,33 +96,45 @@
                     <em>Figure 3.</em> Cosine similarity of translated embeddings (y-axis) and <em>ideal</em> target embeddings (x-axis) as a function of the number of training steps. Note that vec2vec does not have access to the target embeddings during training.
                 </span>
             </figure>
+            <figure>
+                <img src="./assets/table.png" alt="Figure 4" />
+                <label for="mn-figure-4" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-4" class="margin-toggle"/>
+                <span class="marginnote">
+                    <em>Figure 4.</em> In-distribution translations: vec2vecs trained on NQ and evaluated on a 65536 text subset of NQ (chunked in batches of size 8192). The rank metric varies from 1 to 8192, thus 4096 corresponds to a random ordering. Since Optimal Assignment is a matching method, cosine distances are not applicable.  Standard errors are shown in parentheses. Bold denotes best value.
+                </span>
+            </figure>
             
             <!-- Security Implications -->
             <h2 class='section-header'>
                 Security Implications
             </h2>
             <p>
-                Using vec2vec, we show that vector databases reveal (almost) as much as their inputs. Given just vectors (e.g., from a compromised vector database), we show that an adversary can extract sensitive information (e.g., PII) about the underlying text.
+                Then, using vec2vec, we show that vector databases reveal (almost) as much as their inputs.
+                Given just vectors (e.g., from a compromised vector database), we show that an adversary can extract sensitive information about the underlying text.
+            </p>
+            <p>
+                In particular, we extract sensitive disease information from patient records and partial content from corporate emails (Fig. 6), <em>with access only to document embeddings and no access to the encoder that produced them</em>.
+                Better translation methods will enable higher-fidelity extraction.
             </p>
             <figure>
-                <img src="./assets/sec.jpeg" alt="Figure 4" />
-                <label for="mn-figure-4" class="margin-toggle">&#8853;</label>
-                <input type="checkbox" id="mn-figure-4" class="margin-toggle"/>
+                <img src="./assets/sec.jpeg" alt="Figure 5" />
+                <label for="mn-figure-5" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="mn-figure-5" class="margin-toggle"/>
                 <span class="marginnote">
-                    <em>Figure 4.</em> Examples of embedding inversions that infer entities (green) and content (yellow).
+                    <em>Figure 5.</em> Examples of embedding inversions that infer entities (green) and content (yellow).
                 </span>
             </figure>
 
             <!-- Contact -->
             <h2 class='section-header'>
-                Contact
+                Contact & Acknowledgments
             </h2>
             <p>
                 If you have questions about this work, contact Rishi Jha at:
                 <code>
-                    rjha at cs dot cornell dot edu
-                </code>
-                .
+                    rjha at cs dot cornell dot edu.
+                </code> The page design was adapted from these two excellent projects: <a href='https://tufte-css.github.io/tufte-css/' target='_blank' rel='noopener noreferrer'>tufte-css</a> and <a href='https://github.com/tansh-kwa/tufte-project-pages?tab=readme-ov-file' target='_blank' rel='noopener noreferrer'>tufte-project-pages</a>.
             </p>
         </section>
     </article>
