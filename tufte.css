@@ -1,5 +1,56 @@
 @charset "UTF-8";
 
+
+
+.authors {
+    margin-top: 0.05rem !important;
+    margin-bottom: 0.25rem !important;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #8f8f8f;
+}
+
+.me-author {
+    color: #3c9764;
+    /* font-weight: bold; */
+}
+
+.individual-author {
+    font-variant: small-caps;
+}
+
+#authors {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.proc-venue {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+span.newthought {
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
+
+.links {
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.2rem !important;
+    font-size: 1.1rem;
+    /* justify-content: space-between; */
+    /* display: flex; */
+    /* align-items: start; */
+}
+
+.links img {
+    height: 3rem;
+    /* vertical-align: middle; */
+    margin-bottom: -0.5rem;
+}
+
 /* Import ET Book styles
    adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
 
@@ -378,6 +429,15 @@ label.margin-toggle:not(.sidenote-number) {
         padding-right: 8%;
     }
 
+    .links {
+        margin-top: 0.2rem !important;
+        margin-bottom: 0.2rem !important;
+        font-size: 1rem;
+        /* justify-content: space-between; */
+        /* display: flex; */
+        /* align-items: start; */
+    }
+
     hr,
     section > p,
     section > footer,
@@ -447,5 +507,12 @@ label.margin-toggle:not(.sidenote-number) {
 
     img {
         width: 100%;
+    }
+    .authors {
+        margin-top: 0.05rem !important;
+        margin-bottom: 0.25rem !important;
+        font-size: 0.8rem;
+        line-height: 1.25rem;
+        color: #8f8f8f;
     }
 }
